@@ -34,6 +34,6 @@ module.exports = function rastr() {
 				imagemin.optipng(),
 				imagemin.svgo()
 			], ), )
-		.pipe(dest('build/img'))
+		.pipe(dest('docs/img'))
 		.pipe(bs.stream())
 }

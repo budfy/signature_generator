@@ -1,0 +1,34 @@
+.button{
+  display: block;
+  text-align: center;
+  font-family: inherit;
+  background-color: transparent;
+  box-shadow:none;
+  border: 1px solid #484;
+  border-radius:.5em;
+  color:#484;
+  padding: 0.5em 1em;
+  font-weight: 700;
+  transition: all .5s;
+  &:hover{
+    cursor:pointer;
+    border-color: #6f6;
+    color: #6f6;
+    box-shadow: 0.5em 0.5em 0.5em #000;
+  }
+  &:focus{
+    outline: none;
+  }
+  &:focus-visible{
+    border-color: #6f6;
+  }
+  &:active{
+    box-shadow: -0.25em -0.25em 0.5em #111;
+  }
+  &:disabled, &:hover:disabled, &:active:disabled{
+    border-color:#666;
+    color:#666;
+    cursor: default;
+    box-shadow: none;
+  }
+}

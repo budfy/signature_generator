@@ -1,0 +1,40 @@
+.inputfield{
+    margin: 1rem 0;
+    transition: all 0.5s;
+    color: #484;
+
+    &:focus-within {
+      color: #6f6;
+      
+    }
+
+  &__label{
+    color: inherit;
+    display: block;
+    font-weight: 500;
+    flex: 1 0 40%;
+    }
+
+  &__input{
+    display: block;
+    flex: 0 1 60%;
+    font-family: inherit;
+    color: #66f;
+    background-color: inherit;
+    box-shadow: none;
+    border: none;
+    border-bottom: 1px solid #484;
+    transition: all 0.5s;
+    &:valid {
+      color: #6f6;
+    }
+    &:invalid {
+      color:#f66;
+    }
+    &:focus {
+      outline: none;
+      border-color: #6f6;
+      color: #66f;
+    }
+  }
+}
