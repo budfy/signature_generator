@@ -2,4 +2,10 @@
   &__view {
     background-color: #fff;
   }
+
+  &__code {
+    margin-top: 1em;
+    max-height: 10em;
+    overflow: auto;
+  }
 }
