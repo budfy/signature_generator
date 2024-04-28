@@ -73,8 +73,6 @@ function formSubmit(e) {
                style="width:8em">
         </a>
       </td>
-    </tr>
-    <tr>
       <td style="padding-left:.5em;padding-right:.5em;border-right:1px dotted #ff2e17">
         <h3 style="font-size:1.25em;color:#ff2e17;padding:0;margin:0;min-width:10em">${data.first_name} ${data.last_name}</h3>
       <td style="padding-left:.5em;padding-right:.5em;">
@@ -87,7 +85,7 @@ function formSubmit(e) {
         </b>
       </td>
       <td style="padding-left:.5em;padding-right:.5em;">
-        <a href="tel:${data.primary_tel.replaceAll("(", "").replaceAll(")", "").replaceAll("-", "") }"> ${ data.primary_tel}
+        <a href="tel:${data.primary_tel.replaceAll("(", "").replaceAll(")", "").replaceAll("-", "") }"> ${data.primary_tel}
         </a>
       </td>
     <tr>
