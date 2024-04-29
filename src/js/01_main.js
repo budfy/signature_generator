@@ -64,7 +64,7 @@ function formSubmit(e) {
   <hr color=#FF2E17>
   <table>
     <tr>
-      <td style="padding-left:1em;padding-right:1em;min-width:8em rowspan=4">
+      <td style="padding-left:1em;padding-right:1em;min-width:8em" rowspan=4>
         <a href=https://voiceofromni.com.ua
            rel="noopener noreferrer"
            target="_blank">
