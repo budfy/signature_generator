@@ -176,3 +176,14 @@ function formSubmit(e) {
 
 form.addEventListener("submit", formSubmit);
 form.addEventListener("reset", formReset);
+
+copytext.addEventListener('click', 'copyTextFunc');
+copycode.addEventListener('click', 'copyCodeFunc');
+
+function copyTextFunc(e) {
+
+}
+
+function copyCodeFunc(e) {
+
+}
