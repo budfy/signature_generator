@@ -36,49 +36,64 @@
           <h3 class="input__form-title">Введіть свої дані</h3>
           <div class="input__form-item inputfield flex">
             <label for="first_name"
-                   class="inputfield__label">*Ім'я:</label>
+                   class="inputfield__label">Ім'я:</label>
             <input type="text"
                    class="inputfield__input"
                    id="first_name"
                    name="first_name"
                    placeholder="Борис"
-                   required>
+                   required
+                   value="Borys">
           </div>
           <div class="input__form-item inputfield flex">
             <label for="last_name"
-                   class="inputfield__label">*Прізвище:</label>
+                   class="inputfield__label">Прізвище:</label>
             <input type="text"
                    class="inputfield__input"
                    id="last_name"
                    name="last_name"
                    placeholder="Джонсонюк"
-                   required>
+                   required
+                   value="Johnsonuk">
           </div>
           <div class="input__form-item inputfield flex">
             <label for=""
-                   class="inputfield__label">*Посада:</label>
+                   class="inputfield__label">Посада:</label>
             <input type="text"
                    class="inputfield__input"
                    id="position"
                    name="position"
                    placeholder="Прем'єр-міністр"
-                   requered>
+                   required
+                   value="The Prime Minister">
           </div>
           <div class="input__form-item inputfield flex"><label for="email"
-                   class="inputfield__label">*Електронна пошта:</label>
-            <input type="email"
+                   class="inputfield__label">Електронна пошта:</label>
+            <input type="text"
                    class="inputfield__input"
                    id="email"
                    name="email"
-                   placeholder="boris.johnsoniuk@voiceofromni.com.ua">
+                   placeholder="boris.johnsoniuk@voiceofromni.com.ua"
+                   required
+                   value="boris.johnsoniuk@voiceofromni.com.ua">
           </div>
           <div class="input__form-item inputfield flex"><label for="primary_tel"
-                   class="inputfield__label">*Номер телефону:</label>
+                   class="inputfield__label">Номер телефону:</label>
             <input type="tel"
                    class="inputfield__input"
                    id="primary_tel"
                    name="primary_tel"
-                   placeholder="+380999999999">
+                   placeholder="+380999999999"
+                   required
+                   value="+38(011)111-11-11">
+            <div class="inputfield__wrapper">
+              <input class="inputfield__whatsapp-radio"
+                     type="radio"
+                     name="whatsapp_tel"
+                     id="wa_primary">
+              <label for="wa_primary"
+                     class="inputfield__whatsapp-descr">Відмітьте, якщо цей номер телефону прикріплений до Whatsapp</label>
+            </div>
           </div>
           <div class="input__form-item inputfield flex"><label for="secondary_tel"
                    class="inputfield__label">Додатковий номер телефону:</label>
@@ -86,21 +101,30 @@
                    class="inputfield__input"
                    id="secondary_tel"
                    name="secondary_tel"
-                   placeholder="+380999999999"></div>
+                   placeholder="+380999999999"
+                   value="+38(022)222-22-22">
+            <div class="inputfield__wrapper">
+              <input class="inputfield__whatsapp-radio"
+                     type="radio"
+                     name="whatsapp_tel"
+                     id="wa_secondary">
+              <label for="wa_secondary"
+                     class="inputfield__whatsapp-descr">Відмітьте, якщо цей номер телефону прикріплений до Whatsapp</label>
+            </div>
+          </div>
           <div class="input__form-item inputfield flex"><label for="telegram_uid"
                    class="inputfield__label">Нікнейм в Telegram:</label>
             <input type="text"
                    class="inputfield__input"
                    id="telegram_uid"
                    name="telegram_uid"
-                   placeholder="@borisjohnsoniuk"></div>
-          <div class="input__form-item inputfield flex"><label for="whatsapp_tel"
-                   class="inputfield__label">Номер телефону Whatsapp:</label>
-            <input type="tel"
-                   class="inputfield__input"
-                   id="whatsapp_tel"
-                   name="whatsapp_tel"
-                   placeholder="+380999999999"></div>
+                   placeholder="@borisjohnsoniuk"
+                   value="@borisjohnsoniuk">
+          </div>
+
+          <p class="inputfield__descr">
+            Поля відмічені <span class="inputfield__descr-star">*</span> зірочкою є обов'язковими.
+          </p>
           <div class="buttons-wrapper input__form-buttons">
             <button class="button input__form-button"
                     type="reset">❌ Скинути</button>

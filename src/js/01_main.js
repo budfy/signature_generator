@@ -5,6 +5,12 @@ const copytext = document.getElementById("copytext");
 const copycode = document.getElementById("copycode");
 const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
+const requiredInputs = document.querySelectorAll('input[required]');
+console.log(requiredInputs);
+requiredInputs.forEach(el => {
+  el.parentNode.querySelector(".inputfield__label").classList.add("--required")
+});
+
 const telMask = new Inputmask("+38(999)999-99-99", {
   placeholder: "*",
   greedy: true,
@@ -17,11 +23,12 @@ phoneInputs.forEach(el => {
 });
 
 Inputmask({
-  mask: "*{1,50}[.*{1,50}][.*{1,50}]@*{1,50}.*{1,20}[.*{1,20}][.*{1,20}]",
+  mask: "*{1,50}[.*{1,50}][.*{1,50}]@voiceofromni.com.u\\a",
   greedy: false,
   clearIncomplete: false,
   showMaskOnHover: true,
   placeholder: "*",
+  casing: "lower",
   definitions: {
     '*': {
       validator: "[^_@.]"
@@ -52,12 +59,22 @@ function formReset(e) {
 
 function formSubmit(e) {
   e.preventDefault();
-  console.dir(e);
-  console.dir(form);
-  const data = Object.fromEntries(new FormData(form).entries());
-  console.dir(data);
+  let data = Object.fromEntries(new FormData(form).entries());
   copytext.disabled = false;
   copycode.disabled = false;
+
+  console.table(data);
+
+  let telinputs = form.querySelectorAll(".inputfield__input[type='tel']");
+
+  telinputs.forEach(el => {
+    let checkbox = el.parentNode.querySelector(".inputfield__whatsapp-radio")
+    if (checkbox.checked) {
+      data.whatsapp_tel = el.value.replaceAll("(", "").replaceAll(")", "").replaceAll(" - ", "")
+    } else {}
+  });
+
+  console.table(data);
 
   let signature = `<div style="font-family:'Nunito Sans',Tahoma,sans-serif;font-size:small;font-size:14px;color:#000;margin-top:0;margin-bottom:0;margin-left:0;margin-right:0">
   <p>With best regards</p>
@@ -74,18 +91,18 @@ function formSubmit(e) {
         </a>
       </td>
       <td style="padding-left:.5em;padding-right:.5em;border-right:1px dotted #ff2e17">
-        <h3 style="font-size:1.25em;color:#ff2e17;padding:0;margin:0;min-width:10em">${data.first_name} ${data.last_name}</h3>
+        <h3 style="font-size:1.25em;color:#ff2e17;padding:0;margin:0;min-width:10em">${ data.first_name } ${ data.last_name }</h3>
       <td style="padding-left:.5em;padding-right:.5em;">
-        <a href="mailto:${data.email}">${data.email}</a>
+        <a href="mailto:${ data.email }">${ data.email }</a>
       </td>
     <tr>
       <td style="padding-left:.5em;padding-right:.5em;border-right:1px dotted #ff2e17">
         <b>
-          <i>${data.position}</i>
+          <i>${ data.position }</i>
         </b>
       </td>
       <td style="padding-left:.5em;padding-right:.5em;">
-        <a href="tel:${data.primary_tel.replaceAll("(", "").replaceAll(")", "").replaceAll("-", "") }"> ${data.primary_tel}
+        <a href="tel:${ data.primary_tel.replaceAll("(", "").replaceAll(")", "").replaceAll("-", "") }"> ${ data.primary_tel }
         </a>
       </td>
     <tr>
@@ -122,7 +139,7 @@ function formSubmit(e) {
                      style="width:1.5em">
               </a>
             </td>
-            <td style="padding-right:.25em">
+            ${data.telegram_uid && data.telegram_uid !== "@"|| data.telegram_uid!==""?`<td style="padding-right:.25em">
               <a href="https://t.me/${data.telegram_uid.replaceAll("@","")}"
                  rel="noopener noreferrer"
                  target="_blank"
@@ -131,9 +148,10 @@ function formSubmit(e) {
                      src="https://budfy.github.io/signature_generator/img/telegram.png"
                      style="width:1.5em">
               </a>
-            </td>
-            <td style="padding-right:.25em">
-              <a href = "https://wa.me/${data.whatsapp_tel.replaceAll("(","").replaceAll(")","").replaceAll(" - ","")}"
+            </td>`:''
+    }
+            ${data.whatsapp_tel?`<td style="padding-right:.25em">
+              <a href = "https://wa.me/${data.whatsapp_tel}"
                  rel="noopener noreferrer"
                  target="_blank"
                  style="display:inline-block;width:1.5em">
@@ -141,11 +159,11 @@ function formSubmit(e) {
                      src="https://budfy.github.io/signature_generator/img/whatsapp.png"
                      style="width:1.5em">
               </a>
-            </td>
+            </td>`:''}
           </tr>
         </table>
       </td>
-      <td>
+      <td style="padding-left:.5em">
         <a href="tel:${data.secondary_tel.replaceAll("(", "").replaceAll(")", "").replaceAll("-", "")}">
         ${ data.secondary_tel}
         </a>

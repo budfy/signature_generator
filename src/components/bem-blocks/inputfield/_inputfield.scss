@@ -1,21 +1,27 @@
-.inputfield{
-    margin: 1rem 0;
-    transition: all 0.5s;
-    color: #484;
+.inputfield {
+  margin: 1rem 0;
+  transition: all 0.5s;
+  color: #484;
+  flex-wrap: wrap;
 
-    &:focus-within {
-      color: #6f6;
-      
-    }
+  &:focus-within {
+    color: #6f6;
 
-  &__label{
+  }
+
+  &__label {
     color: inherit;
     display: block;
     font-weight: 500;
     flex: 1 0 40%;
-    }
 
-  &__input{
+    &.--required::before {
+      content: "*";
+      color: #f66;
+    }
+  }
+
+  &__input {
     display: block;
     flex: 0 1 60%;
     font-family: inherit;
@@ -25,16 +31,46 @@
     border: none;
     border-bottom: 1px solid #484;
     transition: all 0.5s;
+
     &:valid {
       color: #6f6;
     }
+
     &:invalid {
-      color:#f66;
+      color: #f66;
     }
+
     &:focus {
       outline: none;
       border-color: #6f6;
       color: #66f;
+    }
+  }
+
+  &__descr {
+    margin-top: 1.5em;
+
+  }
+
+  &__descr-star {
+    color: #f66;
+  }
+
+  &__wrapper {
+    font-size: 0.75em;
+    margin-top: 1em;
+  }
+
+  &__whatsapp-radio,
+  &__whatsapp-descr {
+    cursor: pointer;
+  }
+
+  &__whatsapp-descr {
+    transition: all ease-in-out 0.25s;
+
+    &:hover {
+      color: #6f6;
     }
   }
 }
