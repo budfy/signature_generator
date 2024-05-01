@@ -1,5 +1,6 @@
 const plugins = [
-  "node_modules/inputmask/dist/inputmask.js"
+  "node_modules/inputmask/dist/inputmask.js",
+  "node_modules/sweetalert/dist/sweetalert.min.js"
 ];
 const {
   src,

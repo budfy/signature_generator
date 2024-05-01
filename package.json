@@ -45,7 +45,9 @@
   },
   "dependencies": {
     "inputmask": "^5.0.8",
+    "reseter.css": "^2.0.0",
     "sass": "^1.56.0",
+    "sweetalert": "^2.1.2",
     "yarn": "^2.4.3"
   }
 }
